@@ -6,12 +6,13 @@ import {IoIosArrowUp} from 'react-icons/io'
 const Navbar = () => {
 
   const [showDropdown, setShowDropdown] = useState(false)
+  const [isActive, setIsActive] = useState(false)
 
   return (
     <div className='navbar'>
       <div className="navbar__wrapper">
         <h1>KOPPEE</h1>
-        <div className="navbar__links">
+        <div className={isActive ? "navbar__links show" : "navbar__links"}>
           <a href="/" className='currentPage'>Home</a>
           <a href="/about">About</a>
           <a href="/service">Service</a>
@@ -24,6 +25,13 @@ const Navbar = () => {
           </div>
           <a href="/menu">Menu</a>
           <a href="/contact">Contact</a>
+        </div>
+      </div>
+      <div className="navbar__hamburger">
+        <div className="navbar__hamburger-content" onClick={() => setIsActive(prev => !prev)}>
+          <span className='bar'></span>
+          <span className='bar'></span>
+          <span className='bar'></span>
         </div>
       </div>
     </div>
